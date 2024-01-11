@@ -1,23 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { Phone, Charger } from "./Phone";
+// import User from "./User";
+// import Address from "./Address";
+// import Employees from "./Employees";
+// import { Component } from "react";
 
+import React, { useState } from "react";
+import Formdata from "./Formdata";
+import Formfields from "./Formfields";
+import Members from "./Members";
+import Students from "./Students";
+import Render from "./Render";
+// import Btn from "./Btn";
 function App() {
+  const [data, setData] = React.useState(true);
+  function dalMakni() {
+    console.log("Hello From dala  Makni");
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {data ? (
+        <div>
+          <Render car="audi" emps={{ name: "Puneet", age: "30" }}></Render>
+        </div>
+      ) : (
+        <div>The component was unmounted</div>
+      )}
+      {/* 
+      <button
+        onClick={() => {
+          setData(!data);
+          console.log(data);
+        }}
+      >
+        Show Form
+      </button>
+      <Members pizza={dalMakni}></Members>
+      <Students pizza={dalMakni} />
+      <Formfields /> */}
+
+      <button onClick={() => setData(!data)}>Click me to Toggle Render</button>
     </div>
   );
 }
